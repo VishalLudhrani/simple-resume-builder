@@ -1,7 +1,10 @@
 import { BasicInfo } from 'components/forms';
+import { useAppSelector } from 'hooks';
 import * as React from 'react';
 
 const App: React.FC = () => {
+  const basicInfo = useAppSelector(state => state.basic)
+
   return (
     <div>
       <header className='flex flex-col items-center mx-auto py-8 prose text-center'>
@@ -10,7 +13,7 @@ const App: React.FC = () => {
       </header>
       <div className='grid grid-cols-2 divide-x-2 divide-blue-200 px-16'>
         <BasicInfo />
-        <div>test</div>
+        <div>{basicInfo.name}</div>
       </div>
     </div>
   );
